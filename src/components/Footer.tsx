@@ -5,10 +5,8 @@ export function Footer() {
         <p className="text-sm font-bold text-primary">$UVC</p>
         <div className="flex gap-6">
           {[
-            { label: "Twitter", href: "#" },
             { label: "X Community", href: "https://x.com/i/communities/2029833193042460801" },
             { label: "Dextools", href: "#" },
-            { label: "Etherscan", href: "#" },
           ].map((link) => (
             <a key={link.label} href={link.href} target={link.href !== "#" ? "_blank" : undefined} rel={link.href !== "#" ? "noopener noreferrer" : undefined} className="text-sm text-muted-foreground transition-colors hover:text-accent">
               {link.label}
