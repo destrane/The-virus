@@ -33,7 +33,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="px-6 py-24">
+    <section className="section-divider relative px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 text-center">
           <p className="mb-3 text-sm font-bold uppercase tracking-widest text-accent">Symptoms</p>

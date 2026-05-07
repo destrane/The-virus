@@ -4,7 +4,7 @@ const slices = [
 
 export function Tokenomics() {
   return (
-    <section id="buy" className="px-6 py-24">
+    <section id="buy" className="section-divider relative px-6 py-24">
       <div className="mx-auto max-w-4xl">
         <div className="mb-16 text-center">
           <p className="mb-3 text-sm font-bold uppercase tracking-widest text-accent">Tokenomics</p>

@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section id="about" className="relative px-6 py-24">
+    <section id="about" className="section-divider relative px-6 py-24">
       <div className="mx-auto max-w-4xl text-center">
         <p className="mb-3 text-sm font-bold uppercase tracking-widest text-accent">What is this?</p>
         <h2 className="text-glow-gold mb-6 text-3xl font-black text-primary md:text-5xl">

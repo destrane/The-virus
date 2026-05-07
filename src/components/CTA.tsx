@@ -2,7 +2,7 @@ import logo from "@/assets/logo.png";
 
 export function CTA() {
   return (
-    <section className="px-6 py-24">
+    <section className="section-divider relative px-6 py-24">
       <div className="glass-card glow-gold mx-auto max-w-3xl rounded-3xl p-12 text-center">
         <img src={logo} alt="" className="mx-auto mb-6 h-20 w-20" style={{ animation: "wiggle 2s ease-in-out infinite" }} />
         <h2 className="text-glow-gold mb-4 text-3xl font-black text-primary md:text-4xl">

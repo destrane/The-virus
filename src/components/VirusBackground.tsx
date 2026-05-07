@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-interface FloatingVirus {
+interface Mote {
   id: number;
   x: number;
   y: number;
@@ -11,19 +11,19 @@ interface FloatingVirus {
 }
 
 export function VirusBackground() {
-  const [viruses, setViruses] = useState<FloatingVirus[]>([]);
+  const [motes, setMotes] = useState<Mote[]>([]);
 
   useEffect(() => {
-    const items: FloatingVirus[] = Array.from({ length: 28 }, (_, i) => ({
+    const items: Mote[] = Array.from({ length: 18 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 18 + 10,
-      duration: Math.random() * 12 + 14,
-      delay: Math.random() * 10,
-      drift: Math.random() * 60 - 30,
+      size: Math.random() * 14 + 8,
+      duration: Math.random() * 14 + 18,
+      delay: Math.random() * 12,
+      drift: Math.random() * 80 - 40,
     }));
-    setViruses(items);
+    setMotes(items);
   }, []);
 
   return (
@@ -31,75 +31,122 @@ export function VirusBackground() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
-      {/* Deep base gradient layer */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.22_0.04_145/0.35),transparent_60%),radial-gradient(ellipse_at_bottom,oklch(0.2_0.06_90/0.25),transparent_55%)]" />
-
-      {/* Pulsing gold + virus blobs */}
+      {/* Base gradient wash */}
       <div
-        className="absolute left-[10%] top-[15%] h-[420px] w-[420px] rounded-full bg-gold/10 blur-[140px]"
-        style={{ animation: "drift-glow 18s ease-in-out infinite" }}
-      />
-      <div
-        className="absolute right-[8%] top-[55%] h-[480px] w-[480px] rounded-full bg-virus/10 blur-[160px]"
-        style={{ animation: "drift-glow 22s ease-in-out infinite reverse" }}
-      />
-      <div
-        className="absolute left-1/2 bottom-[10%] h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-virus/8 blur-[130px]"
-        style={{ animation: "pulse-glow 9s ease-in-out infinite" }}
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.22 0.05 145 / 0.45), transparent 60%), radial-gradient(ellipse 70% 50% at 50% 100%, oklch(0.22 0.06 90 / 0.35), transparent 60%)",
+        }}
       />
 
-      {/* Biohazard / virus SVG pattern (very faint) */}
+      {/* Two soft drifting glow orbs (one gold, one virus green) */}
+      <div
+        className="absolute rounded-full"
+        style={{
+          left: "8%",
+          top: "12%",
+          width: 480,
+          height: 480,
+          background: "oklch(0.85 0.18 90 / 0.12)",
+          filter: "blur(140px)",
+          animation: "drift-glow 22s ease-in-out infinite",
+        }}
+      />
+      <div
+        className="absolute rounded-full"
+        style={{
+          right: "6%",
+          top: "55%",
+          width: 520,
+          height: 520,
+          background: "oklch(0.65 0.2 145 / 0.14)",
+          filter: "blur(160px)",
+          animation: "drift-glow 26s ease-in-out infinite reverse",
+        }}
+      />
+      <div
+        className="absolute rounded-full"
+        style={{
+          left: "50%",
+          bottom: "8%",
+          width: 380,
+          height: 380,
+          transform: "translateX(-50%)",
+          background: "oklch(0.65 0.2 145 / 0.1)",
+          filter: "blur(130px)",
+          animation: "pulse-glow 11s ease-in-out infinite",
+        }}
+      />
+
+      {/* Faint virus particle SVG pattern */}
       <svg
-        className="absolute inset-0 h-full w-full opacity-[0.04]"
+        className="absolute inset-0 h-full w-full"
         xmlns="http://www.w3.org/2000/svg"
+        style={{ opacity: 0.05 }}
       >
         <defs>
           <pattern
             id="virus-pattern"
             x="0"
             y="0"
-            width="120"
-            height="120"
+            width="140"
+            height="140"
             patternUnits="userSpaceOnUse"
           >
-            <circle cx="60" cy="60" r="14" fill="none" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <line x1="60" y1="40" x2="60" y2="20" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <line x1="60" y1="80" x2="60" y2="100" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <line x1="40" y1="60" x2="20" y2="60" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <line x1="80" y1="60" x2="100" y2="60" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <line x1="46" y1="46" x2="32" y2="32" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <line x1="74" y1="46" x2="88" y2="32" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <line x1="46" y1="74" x2="32" y2="88" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <line x1="74" y1="74" x2="88" y2="88" stroke="oklch(0.65 0.2 145)" strokeWidth="1.2" />
-            <circle cx="60" cy="20" r="2" fill="oklch(0.65 0.2 145)" />
-            <circle cx="60" cy="100" r="2" fill="oklch(0.65 0.2 145)" />
-            <circle cx="20" cy="60" r="2" fill="oklch(0.65 0.2 145)" />
-            <circle cx="100" cy="60" r="2" fill="oklch(0.65 0.2 145)" />
+            <g stroke="oklch(0.65 0.2 145)" strokeWidth="1" fill="none">
+              <circle cx="70" cy="70" r="14" />
+              <line x1="70" y1="48" x2="70" y2="32" />
+              <line x1="70" y1="92" x2="70" y2="108" />
+              <line x1="48" y1="70" x2="32" y2="70" />
+              <line x1="92" y1="70" x2="108" y2="70" />
+              <line x1="55" y1="55" x2="42" y2="42" />
+              <line x1="85" y1="55" x2="98" y2="42" />
+              <line x1="55" y1="85" x2="42" y2="98" />
+              <line x1="85" y1="85" x2="98" y2="98" />
+            </g>
+            <g fill="oklch(0.65 0.2 145)">
+              <circle cx="70" cy="32" r="2" />
+              <circle cx="70" cy="108" r="2" />
+              <circle cx="32" cy="70" r="2" />
+              <circle cx="108" cy="70" r="2" />
+              <circle cx="42" cy="42" r="1.5" />
+              <circle cx="98" cy="42" r="1.5" />
+              <circle cx="42" cy="98" r="1.5" />
+              <circle cx="98" cy="98" r="1.5" />
+            </g>
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#virus-pattern)" />
       </svg>
 
-      {/* Floating virus motes drifting across viewport */}
-      {viruses.map((v) => (
+      {/* Floating glowing virus motes */}
+      {motes.map((m) => (
         <div
-          key={v.id}
+          key={m.id}
           className="absolute rounded-full"
           style={{
-            left: `${v.x}%`,
-            top: `${v.y}%`,
-            width: v.size,
-            height: v.size,
-            background: `radial-gradient(circle, oklch(0.65 0.2 145 / 0.35) 0%, oklch(0.65 0.2 145 / 0.05) 60%, transparent 100%)`,
-            boxShadow: `0 0 ${v.size * 1.5}px oklch(0.65 0.2 145 / 0.25)`,
-            animation: `virus-drift ${v.duration}s ease-in-out ${v.delay}s infinite`,
-            ["--drift" as string]: `${v.drift}px`,
+            left: `${m.x}%`,
+            top: `${m.y}%`,
+            width: m.size,
+            height: m.size,
+            background:
+              "radial-gradient(circle, oklch(0.65 0.2 145 / 0.5) 0%, oklch(0.65 0.2 145 / 0.1) 55%, transparent 100%)",
+            boxShadow: `0 0 ${m.size * 1.8}px oklch(0.65 0.2 145 / 0.3)`,
+            animation: `virus-drift ${m.duration}s ease-in-out ${m.delay}s infinite`,
+            ["--drift" as string]: `${m.drift}px`,
           }}
         />
       ))}
 
       {/* Vignette to keep content legible */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,oklch(0.16_0.02_260/0.6)_100%)]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 45%, oklch(0.16 0.02 260 / 0.55) 100%)",
+        }}
+      />
     </div>
   );
 }
