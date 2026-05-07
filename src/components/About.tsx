@@ -7,7 +7,7 @@ export function About() {
           It's a Virus. For Your Wallet.
         </h2>
         <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          $UNSTABLE is the memecoin that mutates with every transaction. 
+          $UVC is the memecoin that mutates with every transaction. 
           There's no vaccine, no antidote, and definitely no financial advice. 
           Once you catch it, there's no going back. Patient zero was anon. 
           The chart? Unstable. The community? Absolutely unhinged. The vibes? Immaculate.

@@ -32,7 +32,7 @@ export function Hero() {
 
       {/* Title */}
       <h1 className="text-glow-gold mb-4 text-center text-5xl font-black tracking-tight text-primary md:text-7xl lg:text-8xl">
-        $UNSTABLE
+        $UVC
       </h1>
 
       {/* CA - clickable to copy */}
@@ -64,7 +64,7 @@ export function Hero() {
           onClick={handleBuyClick}
           className="glow-gold rounded-xl bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground transition-all hover:scale-105 hover:shadow-lg active:scale-95"
         >
-          {copied ? "CA Copied! 🦠" : "Buy $UNSTABLE"}
+          {copied ? "CA Copied! 🦠" : "Buy $UVC"}
         </button>
         <a
           href="#about"

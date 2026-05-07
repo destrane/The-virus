@@ -17,7 +17,7 @@ export function Tokenomics() {
         <div className="glass-card mx-auto mb-10 max-w-md rounded-2xl p-8 text-center">
           <p className="text-sm font-medium text-muted-foreground">Total Supply</p>
           <p className="text-glow-gold mt-1 text-4xl font-black text-primary">1,000,000,000</p>
-          <p className="mt-1 text-lg font-bold text-accent">$UNSTABLE</p>
+          <p className="mt-1 text-lg font-bold text-accent">$UVC</p>
         </div>
 
         {/* Bar chart */}
