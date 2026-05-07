@@ -1,9 +1,9 @@
 export function Footer() {
   return (
     <footer className="border-t border-border px-6 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
-        <p className="text-sm font-bold text-primary">$UVC</p>
-        <div className="flex gap-6">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-4 text-center md:grid-cols-3">
+        <p className="text-sm font-bold text-primary md:text-left">$UVC</p>
+        <div className="flex justify-center gap-6">
           {[
             { label: "X Community", href: "https://x.com/i/communities/2029833193042460801" },
             { label: "Dextools", href: "#" },
@@ -13,7 +13,7 @@ export function Footer() {
             </a>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground">© 2026 Unstable Virus Coin. NFA. DYOR.</p>
+        <p className="text-xs text-muted-foreground md:text-right">© 2026 Unstable Virus Coin. NFA. DYOR.</p>
       </div>
     </footer>
   );
