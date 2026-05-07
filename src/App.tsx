@@ -4,10 +4,12 @@ import { Features } from "@/components/Features";
 import { Tokenomics } from "@/components/Tokenomics";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
+import { VirusBackground } from "@/components/VirusBackground";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative min-h-screen bg-background">
+      <VirusBackground />
       <Hero />
       <About />
       <Features />
